@@ -99,7 +99,7 @@ public class My_function {
 		boolean	status=false;
 		try {
 			Connection con=Connectivity.dbConnect();
-		String qry="insert into Employee values(?,?,?,?,?,?,?,?,?,?,?,?)";
+		    String qry="insert into Employee values(?,?,?,?,?,?,?,?,?,?,?,?)";
 			PreparedStatement pst=con.prepareStatement(qry);
 			pst.setString(1, employee_Name);
 			pst.setString(2, email_Id);

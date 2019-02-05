@@ -58,60 +58,60 @@ public class Digital_payment extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblTotalAmountTo = new JLabel("Total Amount  to pay = " + SeatLayout.TotalPrice);
+		final JLabel lblTotalAmountTo = new JLabel("Total Amount  to pay = " + SeatLayout.TotalPrice);
 		lblTotalAmountTo.setFont(new Font("Tahoma", Font.BOLD, 14));
 		lblTotalAmountTo.setBounds(41, 98, 593, 21);
 		contentPane.add(lblTotalAmountTo);
 
-		JLabel lblDigitalPaymentMethod = new JLabel("Digital Payment Method");
+		final JLabel lblDigitalPaymentMethod = new JLabel("Digital Payment Method");
 		lblDigitalPaymentMethod.setFont(new Font("Tahoma", Font.BOLD, 18));
 		lblDigitalPaymentMethod.setBounds(332, 21, 225, 46);
 		contentPane.add(lblDigitalPaymentMethod);
 
-		JLabel lblSelectPaymentMethod = new JLabel("Select Payment Method");
+		final JLabel lblSelectPaymentMethod = new JLabel("Select Payment Method");
 		lblSelectPaymentMethod.setBounds(68, 145, 169, 21);
 		contentPane.add(lblSelectPaymentMethod);
 
-		JLabel Paytm = new JLabel("Enter Paytm Number");
+		final JLabel Paytm = new JLabel("Enter Paytm Number");
 		Paytm.setBounds(68, 211, 130, 13);
 		contentPane.add(Paytm);
 		Paytm.setVisible(false);
 
-		JLabel MobiKwik = new JLabel("Enter MobiKwik Number");
+		final JLabel MobiKwik = new JLabel("Enter MobiKwik Number");
 		MobiKwik.setBounds(68, 207, 169, 21);
 		contentPane.add(MobiKwik);
 		MobiKwik.setVisible(false);
 
-		JLabel Card = new JLabel("Card Number");
+		final JLabel Card = new JLabel("Card Number");
 		Card.setBounds(68, 211, 119, 13);
 		contentPane.add(Card);
 		Card.setVisible(false);
 
-		JLabel PhonePe = new JLabel("Enter PhonePe Number ");
+		final JLabel PhonePe = new JLabel("Enter PhonePe Number ");
 		PhonePe.setBounds(68, 211, 154, 13);
 		contentPane.add(PhonePe);
 		PhonePe.setVisible(false);
 
-		JLabel VaildThruLa = new JLabel("Vaild Thru");
+		final JLabel VaildThruLa = new JLabel("Vaild Thru");
 		VaildThruLa.setBounds(68, 270, 63, 13);
 		contentPane.add(VaildThruLa);
 
-		JLabel CVVLabel = new JLabel("CVV");
+		final JLabel CVVLabel = new JLabel("CVV");
 		CVVLabel.setBounds(332, 270, 45, 13);
 		contentPane.add(CVVLabel);
 
-		JTextField Number_1 = new JTextField();
+		final JTextField Number_1 = new JTextField();
 		Number_1.setBounds(294, 208, 452, 19);
 		contentPane.add(Number_1);
 		Number_1.setColumns(10);
 		Number_1.setVisible(false);
 
-		JTextField VaildThru = new JTextField();
+		final JTextField VaildThru = new JTextField();
 		VaildThru.setBounds(157, 267, 96, 19);
 		contentPane.add(VaildThru);
 		VaildThru.setColumns(10);
 
-		JTextField CVV = new JTextField();
+		final JTextField CVV = new JTextField();
 		CVV.setBounds(433, 267, 96, 19);
 		contentPane.add(CVV);
 		CVV.setColumns(10);
@@ -120,7 +120,7 @@ public class Digital_payment extends JFrame {
 		CVVLabel.setVisible(false);
 		VaildThruLa.setVisible(false);
 
-		JComboBox methodSelecter = new JComboBox();
+		final JComboBox methodSelecter = new JComboBox();
 		methodSelecter.setModel(new DefaultComboBoxModel(
 				new String[] { "Select", "Credit Card", "Debit Card", "PayTM", "MobiKwik", "PhonePe" }));
 		methodSelecter.addItemListener(new ItemListener() {

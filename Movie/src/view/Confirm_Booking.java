@@ -59,7 +59,7 @@ public class Confirm_Booking extends JFrame {
 		lblPayment.setBounds(239, 10, 227, 32);
 		contentPane.add(lblPayment);
 		
-		JRadioButton rdbtnDigitalTransfercreditdebitCarddigital = new JRadioButton("Digital Transfer(Credit/Debit card,Digital Wallets,etc)");
+		final JRadioButton rdbtnDigitalTransfercreditdebitCarddigital = new JRadioButton("Digital Transfer(Credit/Debit card,Digital Wallets,etc)");
 		buttonGroup.add(rdbtnDigitalTransfercreditdebitCarddigital);
 		rdbtnDigitalTransfercreditdebitCarddigital.setFont(new Font("Tahoma", Font.BOLD, 14));
 		rdbtnDigitalTransfercreditdebitCarddigital.setBounds(115, 113, 411, 21);
@@ -87,7 +87,7 @@ public class Confirm_Booking extends JFrame {
 		contentPane.add(lblTotalAmountTo);
 		
 		
-		JRadioButton rdbCash = new JRadioButton("Cash");
+       final JRadioButton rdbCash = new JRadioButton("Cash");
 		JButton btnProceed = new JButton("Proceed");
 		btnProceed.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

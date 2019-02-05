@@ -85,7 +85,7 @@ public class Login extends JFrame {
 		textPws.setBounds(254, 134, 213, 19);
 		contentPane.add(textPws);
 		
-		JComboBox panel = new JComboBox();
+		final JComboBox panel = new JComboBox();
 		panel.setFont(new Font("Tahoma", Font.PLAIN, 14));
 		panel.setModel(new DefaultComboBoxModel(new String[] {"Please Select panel", "admin", "employee"}));
 		panel.setBounds(254, 173, 213, 21);

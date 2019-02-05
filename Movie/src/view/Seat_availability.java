@@ -36,7 +36,7 @@ public static int EPrice=0;
 
 	
 	private JPanel contentPane;
-	private JTextField price;
+	//private JTextField price;
 
 	/**
 	 * Launch the application.
@@ -64,7 +64,7 @@ public static int EPrice=0;
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		Connection con=db.Connectivity.dbConnect();
+		final Connection con=db.Connectivity.dbConnect();
 		JLabel lblNewLabel = new JLabel("Movie Name");
 		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
 		lblNewLabel.setBounds(83, 75, 140, 26);
@@ -90,18 +90,30 @@ public static int EPrice=0;
 		lblSe.setBounds(228, 10, 166, 27);
 		contentPane.add(lblSe);
 		
-		JComboBox mname = new JComboBox();
+		final JComboBox mname = new JComboBox();
 		mname.setBounds(313, 81, 318, 21);
 		contentPane.add(mname);
 		
 		
-		JTextField price = new JTextField();
+		final JTextField price = new JTextField();
 		price.setBounds(313, 201, 318, 19);
 		contentPane.add(price);
 		price.setColumns(10);
 		price.setEditable(false);
+		try {
+			Statement st=con.createStatement();
+			String qry="select * from price";
+			ResultSet rst=st.executeQuery(qry);
+			while(rst.next())
+			{
+				mname.addItem(rst.getString(1));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
 		
-		JComboBox mtype = new JComboBox();
+		final JComboBox mtype = new JComboBox();
 		mtype.setModel(new DefaultComboBoxModel(new String[] {"Select", "Gold", "Silver", "Eco"}));
 		mtype.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -110,23 +122,31 @@ public static int EPrice=0;
 								
 				try {
 					Statement st=con.createStatement();
-					String qry="select * from price where Movie_Name='"+Movie_Name+"'";
+					String qry="select * from price where movie_Name='"+Movie_Name+"'";
+					System.out.println(qry);
 					ResultSet rst=st.executeQuery(qry);
-					while(rst.next()) {
+					System.out.println(rst.next());
+					System.out.println(rst.getString(3));
+					do{
 						GPrice=Integer.parseInt(rst.getString(3));
 						SPrice=Integer.parseInt(rst.getString(4));
 						EPrice=Integer.parseInt(rst.getString(5));
 						
+						
 					if(Movie_type.equals("Gold")) 						
-					{	price.setText(rst.getString(3));
-							pRice=price.getText();}
-							else if(Movie_type.equals("Silver")) 
-							{price.setText(rst.getString(4));
-							pRice=price.getText();}
+					{	
+							price.setText(rst.getString(3));
+							pRice=price.getText();
+					}
+					else if(Movie_type.equals("Silver")) 
+					{
+							price.setText(rst.getString(4));
+							pRice=price.getText();
+					}
 					else if(Movie_type.equals("Eco")) 
 							{price.setText(rst.getString(5));
 							pRice=price.getText();}
-					}
+					}while(rst.next());
 				} catch (Exception e1) {
 					// TODO: handle exception
 					System.out.println(e1);
@@ -140,20 +160,9 @@ public static int EPrice=0;
 	
 		
 		
-		try {
-			Statement st=con.createStatement();
-			String qry="select * from price";
-			ResultSet rst=st.executeQuery(qry);
-			while(rst.next())
-			{
-				mname.addItem(rst.getString(1));
-			}
-		} catch (Exception e) {
-			// TODO: handle exception
-			System.out.println(e);
-		}
+		
 				
-		JComboBox timing = new JComboBox();
+		final JComboBox timing = new JComboBox();
 		
 		timing.setModel(new DefaultComboBoxModel(new String[] {"Select Timming", "9:30 AM", "11:00 AM", "12:30 PM", "2:00 PM", "3:30 PM", "5:00 PM", "06:30 PM "}));
 		timing.setBounds(313, 258, 318, 21);

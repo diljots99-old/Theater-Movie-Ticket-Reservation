@@ -82,7 +82,7 @@ public class Price extends JFrame {
 		lblPrice.setBounds(260, 34, 75, 25);
 		contentPane.add(lblPrice);
 		
-		JComboBox movie_name = new JComboBox();
+		final JComboBox movie_name = new JComboBox();
 		movie_name.setBounds(323, 81, 228, 21);
 		contentPane.add(movie_name);
 		
@@ -104,7 +104,7 @@ public class Price extends JFrame {
 		
 		
 		
-		JComboBox movie_type = new JComboBox();
+		final JComboBox movie_type = new JComboBox();
 		movie_type.setModel(new DefaultComboBoxModel(new String[] {"Bollywood", "Hollywood", "Pollywood", "Bhojpuri"}));
 		movie_type.setBounds(323, 129, 228, 21);
 		contentPane.add(movie_type);
@@ -127,7 +127,7 @@ public class Price extends JFrame {
 		txtEco.setColumns(10);
 		
 		
-		JCheckBox chckbxGold = new JCheckBox("Gold");
+		final JCheckBox chckbxGold = new JCheckBox("Gold");
 		chckbxGold.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chckbxGold.isSelected()==true) {
@@ -149,7 +149,7 @@ public class Price extends JFrame {
 		chckbxGold.setBounds(323, 176, 93, 21);
 		contentPane.add(chckbxGold);
 		
-		JCheckBox chkSilver = new JCheckBox("Silver");
+		final JCheckBox chkSilver = new JCheckBox("Silver");
 		chkSilver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chkSilver.isSelected()==true) {
@@ -169,7 +169,7 @@ public class Price extends JFrame {
 		chkSilver.setBounds(323, 211, 93, 21);
 		contentPane.add(chkSilver);
 		
-		JCheckBox chkEco = new JCheckBox("Economy");
+		final JCheckBox chkEco = new JCheckBox("Economy");
 		chkEco.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(chkEco.isSelected()==true)

@@ -64,7 +64,7 @@ public class SeatLayout extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		setResizable(false);
-		JPanel panel = new JPanel();
+		final JPanel panel = new JPanel();
 		panel.setBackground(new Color(0, 255, 255));
 		panel.setForeground(new Color(0, 255, 255));
 		panel.setBounds(68, 10, 581, 10);
@@ -116,12 +116,12 @@ public class SeatLayout extends JFrame {
 		B1.setIcon(new ImageIcon(SeatLayout.class.getResource("/images/Webp.net-resizeimage.jpg")));
 		B1.setSelectedIcon(new ImageIcon(SeatLayout.class.getResource("/images/download--1-.jpg")));
 
-		JToggleButton C1 = new JToggleButton("");
+		final JToggleButton C1 = new JToggleButton("");
 		C1.setBounds(0, 80, 30, 30);
 		panel_Eco.add(C1);
 		C1.setIcon(new ImageIcon(SeatLayout.class.getResource("/images/Webp.net-resizeimage.jpg")));
 
-		JToggleButton A2 = new JToggleButton("");
+		final JToggleButton A2 = new JToggleButton("");
 		A2.setBounds(40, 0, 30, 30);
 		panel_Eco.add(A2);
 		A2.addItemListener(new ItemListener() {
@@ -141,7 +141,7 @@ public class SeatLayout extends JFrame {
 
 		A2.setIcon(new ImageIcon(SeatLayout.class.getResource("/images/Webp.net-resizeimage.jpg")));
 
-		JToggleButton B2 = new JToggleButton("");
+		final JToggleButton B2 = new JToggleButton("");
 		B2.setBounds(40, 40, 30, 30);
 		panel_Eco.add(B2);
 		B2.addItemListener(new ItemListener() {
@@ -2713,7 +2713,7 @@ public class SeatLayout extends JFrame {
 		lblPriceOf.setBounds(519, 565, 165, 13);
 		contentPane.add(lblPriceOf);
 
-		JTextPane textPane = new JTextPane();
+		final JTextPane textPane = new JTextPane();
 		textPane.setBounds(716, 174, 266, 201);
 		contentPane.add(textPane);
 		
@@ -2722,8 +2722,7 @@ public class SeatLayout extends JFrame {
 		JButton btnShowTotalPrice = new JButton("Show Total Price");
 		btnShowTotalPrice.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// System.out.println("Gold= "+GoldCount+" ECo= "+EcoCount+" Silver
-				// "+SilverCount);
+				 System.out.println("Gold= "+GoldCount+" ECo= "+EcoCount+" Silver "+SilverCount);
 				if (Seat_availability.moType.equals("Gold")) {
 					textPane.setText("Gold Ticket = " + GoldCount + "*" + Seat_availability.GPrice + " = "
 							+ GoldCount * Seat_availability.GPrice + "" + "\n\n\n\nTotal = "

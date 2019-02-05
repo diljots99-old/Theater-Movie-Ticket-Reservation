@@ -1,0 +1,24 @@
+[
+{"type":"header","version":"4.8.4","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"movie"},
+{"type":"table","name":"addmovie","database":"movie","data":
+[
+{"movie_name":"Overloaded(2018)","type":"Hollywood","artist":"various","movie_description":"A small group of American soldiers find horror behind enemy lines on the eve of D-Day."}
+]
+}
+,{"type":"table","name":"admin","database":"movie","data":
+[
+{"User":"admin","Password":"admin"}
+]
+}
+,{"type":"table","name":"employee","database":"movie","data":
+[
+{"employee_Name":"Diljot Singh","email_Id":"diljots99@gmail.com","mobile_No":"123456789","address":"sirhind","position":"Marketing","marital_Status":"Single","gender":"Male","password":"password","dOB":"24 Jun, 1999","state":"Punjab (PB)","salary":"12345","aadhar_No":"111122223333"}
+]
+}
+,{"type":"table","name":"price","database":"movie","data":
+[
+{"movie_Name":"Overloaded(2018)","movie_Type":"Hollywood","price_Gold":"300","price_Silver":"200","price_Eco":"100"}
+]
+}
+]

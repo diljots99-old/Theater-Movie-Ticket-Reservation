@@ -99,7 +99,7 @@ public class Add_Movie extends JFrame {
 		mdesc.setBounds(254, 259, 311, 58);
 		contentPane.add(mdesc);
 		
-		JComboBox comboBox = new JComboBox();
+		final JComboBox comboBox = new JComboBox();
 		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Select", "Bollywood", "Hollywood", "Pollywood", "Bhojpuri"}));
 		comboBox.setBounds(254, 154, 96, 21);
 		contentPane.add(comboBox);

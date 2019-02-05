@@ -91,7 +91,7 @@ public class New_emp extends JFrame {
 		lblEmployeeName.setBounds(10, 58, 91, 20);
 		contentPane.add(lblEmployeeName);
 		
-		JTextField ename = new JTextField();
+		final JTextField ename = new JTextField();
 		ename.setBounds(102, 58, 147, 20);
 		contentPane.add(ename);
 		ename.setColumns(10);
@@ -100,13 +100,13 @@ public class New_emp extends JFrame {
 		lblGender.setBounds(259, 58, 46, 20);
 		contentPane.add(lblGender);
 		
-		JRadioButton Male = new JRadioButton("Male");
+		final JRadioButton Male = new JRadioButton("Male");
 		buttonGroup.add(Male);
 		Male.setBackground(SystemColor.inactiveCaptionBorder);
 		Male.setBounds(323, 58, 54, 20);
 		contentPane.add(Male);
 		
-		JRadioButton Female = new JRadioButton("Female");
+		final JRadioButton Female = new JRadioButton("Female");
 		buttonGroup.add(Female);
 		Female.setBackground(SystemColor.inactiveCaptionBorder);
 		Female.setBounds(385, 58, 70, 20);
@@ -117,7 +117,7 @@ public class New_emp extends JFrame {
 		lblEmailId.setBounds(10, 93, 46, 20);
 		contentPane.add(lblEmailId);
 		
-		JTextField eid = new JTextField();
+		final JTextField eid = new JTextField();
 		eid.setBounds(102, 93, 147, 20);
 		contentPane.add(eid);
 		eid.setColumns(10);
@@ -126,7 +126,7 @@ public class New_emp extends JFrame {
 		lblPassword.setBounds(259, 93, 62, 20);
 		contentPane.add(lblPassword);
 		
-		JPasswordField password = new JPasswordField();
+		final JPasswordField password = new JPasswordField();
 		password.setBounds(323, 93, 147, 20);
 		contentPane.add(password);
 		
@@ -134,7 +134,7 @@ public class New_emp extends JFrame {
 		lblMobileNo.setBounds(10, 132, 62, 14);
 		contentPane.add(lblMobileNo);
 		
-		JTextField mno = new JTextField();
+		final JTextField mno = new JTextField();
 		mno.setBounds(102, 124, 147, 20);
 		contentPane.add(mno);
 		mno.setColumns(10);
@@ -148,7 +148,7 @@ public class New_emp extends JFrame {
 		lblAddress.setBounds(10, 168, 62, 14);
 		contentPane.add(lblAddress);
 		
-		JTextField	 address = new JTextField();
+		final JTextField	 address = new JTextField();
 		address.setBounds(102, 165, 149, 20);
 		contentPane.add(address);
 		address.setColumns(10);
@@ -157,7 +157,7 @@ public class New_emp extends JFrame {
 		lblState.setBounds(259, 168, 46, 14);
 		contentPane.add(lblState);
 		
-		JComboBox state = new JComboBox();
+		final JComboBox state = new JComboBox();
 		state.setModel(new DefaultComboBoxModel(new String[] {"Select", "Andhra Pradesh (AP)", "Arunachal Pradesh (AR)", "Assam (AS)", "Bihar (BR)", "Chhattisgarh (CG)", "Goa (GA)", "Gujarat (GJ)", "Haryana (HR)", "Himachal Pradesh (HP)", "Jammu and Kashmir (JK)", "Jharkhand (JH)", "Karnataka (KA)", "Kerala (KL)", "Madhya Pradesh (MP)", "Maharashtra (MH)", "Manipur (MN)", "Meghalaya (ML)", "Mizoram (MZ)", "Nagaland (NL)", "Odisha(OR)", "Punjab (PB)", "Rajasthan (RJ)", "Sikkim (SK)", "Tamil Nadu (TN)", "Telangana (TS)", "Tripura (TR)", "Uttar Pradesh (UP)", "Uttarakhand (UK)", "West Bengal (WB)"}));
 		state.setBounds(323, 165, 147, 20);
 		contentPane.add(state);
@@ -166,7 +166,7 @@ public class New_emp extends JFrame {
 		lblPosition.setBounds(10, 204, 46, 14);
 		contentPane.add(lblPosition);
 		
-		JComboBox position = new JComboBox();
+		final JComboBox position = new JComboBox();
 		position.setModel(new DefaultComboBoxModel(new String[] {"select your position", "Sales Boy", "Sales Girl", "Marketing", "Cashier", "Security Guard"}));
 		position.setBounds(102, 201, 147, 20);
 		contentPane.add(position);
@@ -175,7 +175,7 @@ public class New_emp extends JFrame {
 		lblSalery.setBounds(259, 204, 46, 14);
 		contentPane.add(lblSalery);
 		
-		JTextField salary = new JTextField();
+		final JTextField salary = new JTextField();
 		salary.setBounds(323, 201, 147, 20);
 		contentPane.add(salary);
 		salary.setColumns(10);
@@ -184,7 +184,7 @@ public class New_emp extends JFrame {
 		lblMartialStatus.setBounds(10, 240, 70, 14);
 		contentPane.add(lblMartialStatus);
 		
-		JComboBox mstatus = new JComboBox();
+		final JComboBox mstatus = new JComboBox();
 		mstatus.setModel(new DefaultComboBoxModel(new String[] {"pls select your status", "Single", "Married"}));
 		mstatus.setBounds(102, 237, 147, 20);
 		contentPane.add(mstatus);
@@ -193,12 +193,12 @@ public class New_emp extends JFrame {
 		lblAdharNo.setBounds(259, 240, 62, 14);
 		contentPane.add(lblAdharNo);
 		
-		JTextField adhno = new JTextField();
+		final JTextField adhno = new JTextField();
 		adhno.setBounds(323, 232, 147, 20);
 		contentPane.add(adhno);
 		adhno.setColumns(10);
 		
-		JDateChooser dob = new JDateChooser();
+		final JDateChooser dob = new JDateChooser();
 		dob.setBounds(323, 127, 147, 19);
 		contentPane.add(dob);
 		

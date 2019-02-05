@@ -1,0 +1,206 @@
+package view;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
+import java.awt.Font;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.event.ItemListener;
+import java.awt.event.ItemEvent;
+
+public class Seat_availability extends JFrame {
+public static String moName=null;
+public static String timming=null;
+public static String pRice =null;
+public static String moType=null;
+public static int GPrice=0;
+public static int SPrice=0;
+public static int EPrice=0;
+
+
+	
+	private JPanel contentPane;
+	//private JTextField price;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Seat_availability frame = new Seat_availability();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Seat_availability() {
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 713, 405);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		contentPane.setLayout(null);
+		final Connection con=db.Connectivity.dbConnect();
+		JLabel lblNewLabel = new JLabel("Movie Name");
+		lblNewLabel.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel.setBounds(83, 75, 140, 26);
+		contentPane.add(lblNewLabel);
+		
+		JLabel lblNewLabel_1 = new JLabel("Movie Type");
+		lblNewLabel_1.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_1.setBounds(83, 132, 140, 26);
+		contentPane.add(lblNewLabel_1);
+		
+		JLabel lblNewLabel_2 = new JLabel("Price");
+		lblNewLabel_2.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_2.setBounds(83, 194, 140, 26);
+		contentPane.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_3 = new JLabel("Timing");
+		lblNewLabel_3.setFont(new Font("Times New Roman", Font.PLAIN, 20));
+		lblNewLabel_3.setBounds(83, 252, 140, 26);
+		contentPane.add(lblNewLabel_3);
+		
+		JLabel lblSe = new JLabel("Seat Avalibilty");
+		lblSe.setFont(new Font("Times New Roman", Font.PLAIN, 26));
+		lblSe.setBounds(228, 10, 166, 27);
+		contentPane.add(lblSe);
+		
+		final JComboBox mname = new JComboBox();
+		mname.setBounds(313, 81, 318, 21);
+		contentPane.add(mname);
+		
+		
+		final JTextField price = new JTextField();
+		price.setBounds(313, 201, 318, 19);
+		contentPane.add(price);
+		price.setColumns(10);
+		price.setEditable(false);
+		try {
+			Statement st=con.createStatement();
+			String qry="select * from price";
+			ResultSet rst=st.executeQuery(qry);
+			while(rst.next())
+			{
+				mname.addItem(rst.getString(1));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		
+		final JComboBox mtype = new JComboBox();
+		mtype.setModel(new DefaultComboBoxModel(new String[] {"Select", "Gold", "Silver", "Eco"}));
+		mtype.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String Movie_Name=(String) mname.getSelectedItem();	
+				String Movie_type=(String) mtype.getSelectedItem();
+								
+				try {
+					Statement st=con.createStatement();
+					String qry="select * from price where movie_Name='"+Movie_Name+"'";
+					System.out.println(qry);
+					ResultSet rst=st.executeQuery(qry);
+					System.out.println(rst.next());
+					System.out.println(rst.getString(3));
+					do{
+						GPrice=Integer.parseInt(rst.getString(3));
+						SPrice=Integer.parseInt(rst.getString(4));
+						EPrice=Integer.parseInt(rst.getString(5));
+						
+						
+					if(Movie_type.equals("Gold")) 						
+					{	
+							price.setText(rst.getString(3));
+							pRice=price.getText();
+					}
+					else if(Movie_type.equals("Silver")) 
+					{
+							price.setText(rst.getString(4));
+							pRice=price.getText();
+					}
+					else if(Movie_type.equals("Eco")) 
+							{price.setText(rst.getString(5));
+							pRice=price.getText();}
+					}while(rst.next())
+				} catch (Exception e1) {
+					// TODO: handle exception
+					System.out.println(e1);
+				}
+			}
+		});
+		
+		mtype.setBounds(313, 138, 318, 21);
+		contentPane.add(mtype);
+		
+	
+		
+		
+		
+				
+		final JComboBox timing = new JComboBox();
+		
+		timing.setModel(new DefaultComboBoxModel(new String[] {"Select Timming", "9:30 AM", "11:00 AM", "12:30 PM", "2:00 PM", "3:30 PM", "5:00 PM", "06:30 PM "}));
+		timing.setBounds(313, 258, 318, 21);
+		contentPane.add(timing);
+		
+		
+		JButton btnSubmit = new JButton("Proceed");
+		btnSubmit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				moName=(String) mname.getSelectedItem();
+				moType=(String) mtype.getSelectedItem();
+				timming=(String) timing.getSelectedItem();
+				
+				System.out.println(moName+moType+timming+pRice);
+				new SeatLayout().setVisible(true);
+				dispose();
+			}
+		});
+		
+		btnSubmit.setBounds(169, 323, 85, 21);
+		contentPane.add(btnSubmit);
+		
+				
+		JButton btnExit = new JButton("Exit");
+		btnExit.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+					int i=JOptionPane.showConfirmDialog(null,"Are you sure to exit");
+					System.out.println(i);
+					if(i<=0) {
+					dispose();
+				}
+			}
+		});
+		btnExit.setBounds(506, 323, 85, 21);
+		contentPane.add(btnExit);
+	
+		
+		
+			
+	}
+}
